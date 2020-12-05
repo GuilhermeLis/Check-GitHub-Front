@@ -23,8 +23,9 @@
         "@typescript-eslint"
     ],
     "rules": {
-      "@typescript-eslint/eslint-plugin": "4.0.1",
-      "@typescript-eslint/parser": "4.0.1",
+      "no-use-before-define": "off",
+      "import/prefer-default-export": "off",
+      "@typescript-eslint/no-use-before-define": ["error"],
       "react/jsx-filename-extension": [1, {"extensions": [".tsx"]}],
       "import/extensions": ["error", "ignorePackages",{"ts": "never","tsx": "never"}]
     },
