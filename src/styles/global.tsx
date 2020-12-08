@@ -19,7 +19,7 @@ export default createGlobalStyle`
   body {
     font: 400 ${({ theme }) => theme.fonts.regular}, sans-serif;
     -webkit-font-smoothing: antialiased;
-    background: ${({ theme }) => theme.color.vegasGold};
+    background: ${({ theme }) => theme.color.xiketic};
     font-family: ${({ theme }) => theme.fonts.regular}, sans-serif;
   }
 `;

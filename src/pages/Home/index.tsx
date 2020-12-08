@@ -9,10 +9,26 @@ import {
   BoxTitle,
 } from './styles';
 
+import { useContextAuthors } from '~/Context/Context';
+
 const Home: React.FC = () => {
+  const { setSearch } = useContextAuthors();
   const history = useHistory();
   const navagationInto = (route: string) => {
-    history.push(route);
+    switch (route) {
+      case 'authors':
+        history.push('/authors');
+        setSearch('commits');
+        break;
+      case 'adicionaram':
+        history.push('/authors');
+        setSearch('adicionaram');
+        break;
+      default:
+        history.push('/authors');
+        setSearch('removeram');
+        break;
+    }
   };
   return (
     <Container>
@@ -20,13 +36,16 @@ const Home: React.FC = () => {
       <InnerContainer>
         <BoxTitle>Desafios</BoxTitle>
         <BoxContainer>
-          <Box gridArea="firstItem" onClick={() => navagationInto('/authors')}>
+          <Box gridArea="firstItem" onClick={() => navagationInto('authors')}>
             Usuários que mais criaram commits
           </Box>
-          <Box gridArea="secondItem">
+          <Box
+            gridArea="secondItem"
+            onClick={() => navagationInto('adicionaram')}
+          >
             Usuários que mais adicionaram linhas de código
           </Box>
-          <Box gridArea="thirdItem">
+          <Box gridArea="thirdItem" onClick={() => navagationInto('removeram')}>
             Usuários que mais removeram linhas de código no repositório
           </Box>
         </BoxContainer>

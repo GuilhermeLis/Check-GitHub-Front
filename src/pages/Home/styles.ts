@@ -12,7 +12,7 @@ export const Container = styled.div`
 `;
 
 export const Title = styled.h1`
-  color: ${({ theme }) => theme.color.xiketic};
+  color: ${({ theme }) => theme.color.redOrangeColorWheel};
   margin: 50px 0 0;
 `;
 
@@ -22,7 +22,7 @@ export const InnerContainer = styled.div`
   align-items: center;
   background: ${({ theme }) => theme.color.earthYellow};
   border-radius: 4px;
-  box-shadow: 2px 8px 10px ${({ theme }) => theme.color.earthYellow};
+  box-shadow: 2px 3px 10px ${({ theme }) => theme.color.earthYellow};
   padding: 30px;
   min-width: 500px;
   margin: auto;
