@@ -39,7 +39,9 @@ export const BoxTitle = styled.h2`
   color: ${({ theme }) => theme.color.xiketic};
 `;
 
-export const Box = styled.div<BoxProps>`
+export const Box = styled.button<BoxProps>`
+  border: none;
+  text-decoration: none;
   grid-area: ${({ gridArea }) => gridArea};
   padding: 30px;
   text-align: center;
