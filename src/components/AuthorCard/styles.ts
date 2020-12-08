@@ -13,13 +13,21 @@ export const Container = styled.div`
   border: 1px solid ${({ theme }) => theme.color.xiketic};
   border-radius: 4px;
   margin: 20px;
+  color: ${({ theme }) => theme.color.xiketic};
+  font-size: 20px;
+  transition: background 1s, box-shadow 1s, color 1s, height 1s, font-size 1s;
+  &:hover {
+    background: ${({ theme }) => theme.color.buff};
+    box-shadow: 2px 4px 4px ${({ theme }) => theme.color.xiketic};
+    color: ${({ theme }) => theme.color.redOrangeColorWheel};
+    height: 70px;
+    font-size: 30px;
+  }
 `;
 
 export const Name = styled.p`
-  color: ${({ theme }) => theme.color.xiketic};
   font-family: ${({ theme }) => theme.fonts.regular};
   font-weight: 500;
-  font-size: 20px;
 `;
 
 export const AmountContainer = styled.div<AmountContainerProps>`
@@ -42,8 +50,6 @@ export const AmountContainer = styled.div<AmountContainerProps>`
 `;
 
 export const Amount = styled.p`
-  color: ${({ theme }) => theme.color.xiketic};
   font-family: ${({ theme }) => theme.fonts.regular};
   font-weight: 500;
-  font-size: 20px;
 `;
