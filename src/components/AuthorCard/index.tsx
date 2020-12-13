@@ -11,7 +11,7 @@ const AuthorCard: React.FC<Props> = ({ name, amount }) => {
   return (
     <Container>
       <Name>{name || 'Desconhecido'}</Name>
-      <AmountContainer bigger={amount < 100}>
+      <AmountContainer>
         <Amount>{amount}</Amount>
       </AmountContainer>
     </Container>

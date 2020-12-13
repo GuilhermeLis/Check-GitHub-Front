@@ -1,8 +1,4 @@
-import styled, { css } from 'styled-components';
-
-type AmountContainerProps = {
-  bigger: boolean;
-};
+import styled from 'styled-components';
 
 export const Container = styled.div`
   display: flex;
@@ -32,23 +28,12 @@ export const Name = styled.p`
   font-weight: 500;
 `;
 
-export const AmountContainer = styled.div<AmountContainerProps>`
+export const AmountContainer = styled.div`
   display: flex;
-  /* border: 2px solid ${({ theme }) => theme.color.redOrangeColorWheel}; */
   border-radius: 50%;
   align-items: center;
   justify-content: center;
   padding: 8px;
-  ${({ bigger }) =>
-    bigger
-      ? css`
-          /* width: 40px;
-          height: 40px; */
-        `
-      : css`
-          /* width: 50px;
-          height: 50px; */
-        `};
 `;
 
 export const Amount = styled.p`

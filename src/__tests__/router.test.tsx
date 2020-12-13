@@ -1,6 +1,4 @@
 import React from 'react';
-import { render, screen } from '@testing-library/react';
-import { expect } from 'chai';
 import { shallow } from 'enzyme';
 
 import Routes from '~/router';
@@ -11,6 +9,8 @@ import Routes from '~/router';
 //   expect(linkElement).toBeInTheDocument();
 // });
 
-it('renders without crashing', () => {
-  const component = shallow(<Routes />);
+describe('Routes component', () => {
+  it('renders without crashing', () => {
+    shallow(<Routes />);
+  });
 });
