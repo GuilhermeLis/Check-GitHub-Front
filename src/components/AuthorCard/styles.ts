@@ -15,11 +15,13 @@ export const Container = styled.div`
   margin: 20px;
   color: ${({ theme }) => theme.color.xiketic};
   font-size: 20px;
-  transition: background 1s, box-shadow 1s, color 1s, height 1s, font-size 1s;
+  transition: border 0.2s, background 1.4s, box-shadow 1s, color 1.3s, height 1s,
+    font-size 1.5s;
   &:hover {
-    background: ${({ theme }) => theme.color.buff};
+    border: 2px groove ${({ theme }) => theme.color.xiketic};
+    background: ${({ theme }) => theme.color.redOrangeColorWheel};
     box-shadow: 2px 4px 4px ${({ theme }) => theme.color.xiketic};
-    color: ${({ theme }) => theme.color.redOrangeColorWheel};
+    color: ${({ theme }) => theme.color.xiketic};
     height: 70px;
     font-size: 30px;
   }

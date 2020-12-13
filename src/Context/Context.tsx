@@ -11,8 +11,6 @@ export type authorsType = {
 type serachTypes = 'commits' | 'adicionaram' | 'removeram';
 
 type returnType = {
-  searchType: serachTypes;
-  serchDescription: string;
   setSearch: (searchType: serachTypes) => void;
   authors: authorsType[];
   setAuthors: (array: authorsType[]) => void;
@@ -24,22 +22,29 @@ type propsContext = {
 
 export default function Context({ children }: propsContext): JSX.Element {
   const [authors, setAuthors] = useState<authorsType[]>([]);
-  const [searchType, setSearchType] = useState<string>('');
-  const [serchDescription, setSerchDescription] = useState<string>('');
 
   const setSearch = (search: serachTypes) => {
     switch (search) {
       case 'adicionaram':
-        setSerchDescription('Usuários que mais criaram commits');
-        setSearchType('adicionaram');
+        localStorage.setItem(
+          'description',
+          'Usuários que mais criaram commits'
+        );
+        localStorage.setItem('type', 'adicionaram');
         break;
       case 'commits':
-        setSerchDescription('Usuários que mais adicionaram linhas de código');
-        setSearchType('commits');
+        localStorage.setItem(
+          'description',
+          'Usuários que mais adicionaram linhas de código'
+        );
+        localStorage.setItem('type', 'commits');
         break;
       default:
-        setSerchDescription(' usuários que mais removeram linhas de código ');
-        setSearchType('removeram');
+        localStorage.setItem(
+          'description',
+          ' usuários que mais removeram linhas de código '
+        );
+        localStorage.setItem('type', 'removeram');
         break;
     }
   };
@@ -49,9 +54,7 @@ export default function Context({ children }: propsContext): JSX.Element {
       value={{
         authors,
         setAuthors,
-        searchType,
         setSearch,
-        serchDescription,
       }}
     >
       {children}
@@ -61,12 +64,6 @@ export default function Context({ children }: propsContext): JSX.Element {
 
 export function useContextAuthors(): returnType {
   const context = useContext(TypeContext) as returnType;
-  const {
-    authors,
-    setAuthors,
-    searchType,
-    setSearch,
-    serchDescription,
-  } = context;
-  return { authors, setAuthors, searchType, setSearch, serchDescription };
+  const { authors, setAuthors, setSearch } = context;
+  return { authors, setAuthors, setSearch };
 }

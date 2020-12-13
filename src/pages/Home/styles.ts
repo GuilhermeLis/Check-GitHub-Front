@@ -14,6 +14,10 @@ export const Container = styled.div`
 export const Title = styled.h1`
   color: ${({ theme }) => theme.color.redOrangeColorWheel};
   margin: 50px 0 0;
+  text-align: center;
+  @media (max-width: 500px) {
+    margin: 50px 0;
+  }
 `;
 
 export const InnerContainer = styled.div`
@@ -24,7 +28,6 @@ export const InnerContainer = styled.div`
   border-radius: 4px;
   box-shadow: 2px 3px 10px ${({ theme }) => theme.color.earthYellow};
   padding: 30px;
-  min-width: 500px;
   margin: auto;
 `;
 
@@ -33,6 +36,13 @@ export const BoxContainer = styled.div`
   grid-template-areas:
     'firstItem secondItem'
     'thirdItem thirdItem';
+
+  @media (max-width: 600px) {
+    grid-template-areas:
+      'firstItem'
+      'secondItem'
+      'thirdItem';
+  }
 `;
 
 export const BoxTitle = styled.h2`

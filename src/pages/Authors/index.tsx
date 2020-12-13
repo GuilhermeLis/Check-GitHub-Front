@@ -1,8 +1,9 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
+import ReactLoading from 'react-loading';
 
 import { Container, ContainerTitle, Title, MainTable } from './styles';
 
-import ComparationAnd from '~/components/ComparationAnd';
+import ComparisonIf from '~/components/ComparationIf';
 import AuthorsCard from '~/components/AuthorCard';
 
 import { useContextAuthors } from '~/Context/Context';
@@ -14,27 +15,30 @@ import {
 } from '~/services/Api/APIcall';
 
 const Authors: React.FC = () => {
-  const {
-    authors,
-    setAuthors,
-    searchType,
-    serchDescription,
-  } = useContextAuthors();
+  const { authors, setAuthors } = useContextAuthors();
+  const [loading, setLoading] = useState<boolean>(true);
+  const [serchDescription, setSerchDescription] = useState<string>('');
   useEffect(() => {
+    const searchType = localStorage.getItem('type');
+    setSerchDescription(localStorage.getItem('description') || '');
+
     switch (searchType) {
       case 'commits':
         authorsRequest().then((data) => {
           setAuthors(data);
+          setLoading(false);
         });
         break;
       case 'adicionaram':
         authorByAddintionsRequest().then((data) => {
           setAuthors(data);
+          setLoading(false);
         });
         break;
       default:
         authorByRemovalsRequest().then((data) => {
           setAuthors(data);
+          setLoading(false);
         });
         break;
     }
@@ -44,7 +48,13 @@ const Authors: React.FC = () => {
       <ContainerTitle>
         <Title>{serchDescription}</Title>
       </ContainerTitle>
-      <ComparationAnd condition={authors.length > 0}>
+
+      <ComparisonIf
+        condition={loading}
+        loading={
+          <ReactLoading type="balls" color="#EDD382" height={200} width={375} />
+        }
+      >
         <MainTable>
           {authors.map((author) => (
             <AuthorsCard
@@ -54,7 +64,7 @@ const Authors: React.FC = () => {
             />
           ))}
         </MainTable>
-      </ComparationAnd>
+      </ComparisonIf>
     </Container>
   );
 };

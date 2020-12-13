@@ -14,19 +14,26 @@ export const ContainerTitle = styled.div`
   align-items: center;
   justify-content: center;
   margin: 20px 50px;
-  height: 40px;
   padding: 20px;
   border-radius: 4px;
-  background: ${({ theme }) => theme.color.earthYellow};
-  color: ${({ theme }) => theme.color.xiketic};
+  background: ${({ theme }) => theme.color.xiketic};
+  color: ${({ theme }) => theme.color.redOrangeColorWheel};
+  outline: 2px groove ${({ theme }) => theme.color.redOrangeColorWheel};
+  transition: border 0.2s, background 0.4s, box-shadow 0.8s, color 0.1s;
   &:hover {
-    background: ${({ theme }) => theme.color.buff};
-    box-shadow: 2px 4px 4px ${({ theme }) => theme.color.xiketic};
-    color: ${({ theme }) => theme.color.earthYellow};
+    outline: none;
+    background: ${({ theme }) => theme.color.redOrangeColorWheel};
+    box-shadow: 2px 4px 4px ${({ theme }) => theme.color.redOrangeColorWheel};
+    color: ${({ theme }) => theme.color.xiketic};
   }
 `;
 
-export const Title = styled.p``;
+export const Title = styled.p`
+  text-align: center;
+  font-family: ${({ theme }) => theme.fonts.regular};
+  font-size: 20px;
+  font-weight: bold;
+`;
 
 export const MainTable = styled.div`
   background: ${({ theme }) => theme.color.earthYellow};
