@@ -32,9 +32,11 @@ const Home: React.FC = () => {
   };
   return (
     <Container>
-      <Title>Seja bem vindo ao desafio sigalei</Title>
+      <Title>
+        Lista de resultados baseados na contribuição no repositório linux
+      </Title>
       <InnerContainer>
-        <BoxTitle>Desafios</BoxTitle>
+        <BoxTitle>Resultados</BoxTitle>
         <BoxContainer>
           <Box gridArea="firstItem" onClick={() => navagationInto('authors')}>
             Usuários que mais criaram commits
